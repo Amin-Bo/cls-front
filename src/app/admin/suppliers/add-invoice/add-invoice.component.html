@@ -1,0 +1,45 @@
+<p>ID : {{data.id}} </p>
+
+<form [formGroup]="form" (submit)="onSubmit()">
+
+  <div class="row">
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>{{ "Date" | translate}}</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>{{ "Payment Status" | translate}}</mat-label>
+      <mat-select formControlName="payment_status">
+        <mat-option value="paid">{{ "Paid" | translate}}</mat-option>
+        <mat-option value="not_paid">{{ "Not Paid" | translate}}</mat-option>
+        <mat-option value="paid_by_split">{{ "Paid By Split" | translate}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>{{ "Payment Methode" | translate}}</mat-label>
+      <mat-select formControlName="payment_method">
+        <mat-option value="cash">{{ "Cash" | translate}}</mat-option>
+        <mat-option value="cheque">{{ "Cheque" | translate}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>{{ "Payment Amount" | translate}}</mat-label>
+      <input matInput formControlName="amount">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>{{ "Amount Excluding Taxes" | translate}}</mat-label>
+      <input matInput formControlName="Amount_excluding_taxes">
+    </mat-form-field>
+
+    <input type="file" (change)="onImagePicked($event)" matTooltip="Choose Contract file">
+
+  </div>
+  <button mat-raised-button color="primary" class="submit" [disabled]="!form.valid">{{ "Submit" | translate}}</button>
+</form>

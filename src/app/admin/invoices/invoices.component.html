@@ -1,0 +1,59 @@
+<h2> {{ "Invoices" | translate}} </h2>
+<div class="container">
+  <div class="example-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <mat-form-field appearance="standard" class="filter">
+    <mat-label>{{ "Filter" | translate}}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Type Name..." #input>
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" class="perso-elevation example-table-container" matSort matSortDisableClear matSortActive="position" matSortDirection="asc">
+  <!-- N* -->
+  <ng-container matColumnDef="n">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> N. </th>
+    <td mat-cell *matCellDef="let element "> {{element.n}} </td>
+  </ng-container>
+  <!-- first_name Column -->
+  <ng-container matColumnDef="supplier">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'Supplier' | translate }} </th>
+    <td mat-cell *matCellDef="let element"> {{element.supplier.name}} </td>
+  </ng-container>
+
+  <!-- last_name Column -->
+  <ng-container matColumnDef="payment_method">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Payment Method" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.payment_method}} </td>
+  </ng-container>
+
+  <!-- email Column -->
+  <ng-container matColumnDef="payment_status" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Payment Status" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.payment_status | translate }} </td>
+  </ng-container>
+  <!-- job_title Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.date | date: 'mediumDate'}} </td>
+  </ng-container>
+  <!-- job_title Column -->
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Amount" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.amount | currency : 'TND'}} </td>
+  </ng-container>
+
+
+
+  <ng-container matColumnDef="details" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Details" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> <a routerLink="{{element._id}}" > <button mat-mini-fab color="primary"><mat-icon>info</mat-icon></button> </a> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10]"
+               showFirstLastButtons
+               aria-label="Select page of Users">
+</mat-paginator>
+
+</div>

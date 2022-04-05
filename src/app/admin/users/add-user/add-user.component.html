@@ -1,0 +1,65 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+    <div class="row">
+      <mat-form-field appearance="fill" class="col">
+        <mat-label>{{ "First Name" | translate}}</mat-label>
+        <input matInput formControlName="firstName" placeholder="First Name...">
+
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="col">
+        <mat-label>{{ "Last Name" | translate}}</mat-label>
+        <input matInput formControlName="lastName" placeholder="Last Name...">
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>{{ "Email" | translate}}</mat-label>
+      <input matInput formControlName="email" type="email" placeholder="email...">
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>{{ "Password" | translate}}</mat-label>
+      <input matInput formControlName="password" type="password" placeholder="password...">
+    </mat-form-field>
+    <div class="row">
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>{{ "Phone Number" | translate}}</mat-label>
+      <input matInput formControlName="phone" type="number" min="0" placeholder="phone...">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>{{ "National ID Card" | translate}}</mat-label>
+      <input matInput formControlName="cin" type="number" min="0" placeholder="id...">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <mat-form-field appearance="fill" style="width:100%;">
+        <mat-label>{{ "Date In" | translate}}</mat-label>
+        <input matInput formControlName="date_in" [matDatepicker]="pickerIn">
+        <mat-datepicker-toggle matSuffix [for]="pickerIn"></mat-datepicker-toggle>
+        <mat-datepicker #pickerIn></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field appearance="fill" style="width:100%;">
+        <mat-label>{{ "Date Out" | translate}}</mat-label>
+        <input matInput formControlName="date_out" [matDatepicker]="pickerOut">
+        <mat-datepicker-toggle matSuffix [for]="pickerOut"></mat-datepicker-toggle>
+        <mat-datepicker #pickerOut></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>{{ "Job Title" | translate}}</mat-label>
+      <input formControlName="job_title" matInput placeholder="Job Title...">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col">
+      <mat-label>{{ "Department" | translate}}</mat-label>
+      <input  formControlName="department" matInput placeholder="Department...">
+    </mat-form-field>
+  </div>
+
+  <button class="submit" mat-raised-button [color]="'primary'" type="submit">{{ "Add User" | translate}}</button>
+</form>

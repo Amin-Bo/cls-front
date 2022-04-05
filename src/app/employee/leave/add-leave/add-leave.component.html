@@ -1,0 +1,37 @@
+<h3>{{"Send Request" | translate}} </h3>
+
+<form [formGroup]="form" (submit)="onSubmit()">
+
+<div class="row">
+  <div class="col">
+    <mat-form-field appearance="fill" style="width:100%;">
+      <mat-label>{{ "Leave start date" | translate}}</mat-label>
+      <input matInput formControlName="leave_start_date" [matDatepicker]="pickerIn" required>
+      <mat-datepicker-toggle matSuffix [for]="pickerIn"></mat-datepicker-toggle>
+      <mat-datepicker #pickerIn></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <mat-form-field appearance="fill" style="width:100%;">
+      <mat-label>{{ "Leave end date" | translate}}</mat-label>
+      <input matInput formControlName="leave_end_date" [matDatepicker]="pickerOut" required>
+      <mat-datepicker-toggle matSuffix [for]="pickerOut"></mat-datepicker-toggle>
+      <mat-datepicker #pickerOut></mat-datepicker>
+    </mat-form-field>
+  </div>
+</div>
+<div class="row">
+    <mat-form-field appearance="fill" class="col">
+        <mat-label>{{"Select Type"|translate}}</mat-label>
+        <mat-select formControlName="type" required>
+            <mat-option *ngFor="let type of LeaveType" [value]="type.value">
+                {{type.viewValue}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('type')?.errors?.required">{{"Please Choose a type"|translate}}</mat-error>
+    </mat-form-field>
+    <input type="file" (change)="onFilePicked($event)" matTooltip="Choose Certificat file" [required]="false">
+</div>
+
+<button class="submit" mat-raised-button [color]="'primary'" type="submit" [disabled]="!form.valid">{{ "SUBMIT" | translate}}</button>
+</form>

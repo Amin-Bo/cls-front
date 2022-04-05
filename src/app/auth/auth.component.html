@@ -1,0 +1,44 @@
+<div class="hero">
+  <img src="../../assets/Auth_blob.png" alt="">
+  <div class="container">
+    <div class="logo_illustration">
+      <img class="logo" src="../../assets/CLS RH LOGO.png" alt="">
+      <img class="illustration" src="../../assets/illustration.png" alt="">
+    </div>
+    
+    <div class="login">
+      <button class="lang_btn" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>language</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+          <button mat-menu-item class="choose_lang" (click)="changeLanguage('en-US')"><img class="flag" src="../../assets/gb.svg" alt=""> <span>{{"English" | translate}}</span></button> 
+          <button mat-menu-item class="choose_lang" (click)="changeLanguage('fr-FR')"> <img class="flag" src="../../assets/fr.svg" alt=""> <span>{{"French" | translate}} </span></button>
+      </mat-menu>
+      <div class="title">
+        <h1>{{"Welcome Back!"|translate}}🖐</h1>
+        <p>{{"Please login to access your account"|translate}}</p>
+      </div>
+      <form [formGroup]="form" (submit)="onSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label>{{"Email"|translate}}</mat-label>
+          <input type="email" matInput formControlName="email" required>
+          <mat-error *ngIf="form.get('email')?.invalid && form.get('email')?.dirty">
+            {{"Please enter a valid email"|translate}}
+          </mat-error>
+          <mat-error *ngIf="form.get('email')?.errors?.required">
+            {{"Email is required"|translate}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{"Password"|translate}}</mat-label>
+          <input type="password" matInput formControlName="password" required>
+          <mat-error *ngIf="form.get('password')?.errors?.required">
+            {{"Please enter password"|translate}}
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button class="Submit_button" type="submit">{{"LOGIN" | translate}} </button>
+      </form>
+
+    </div>
+  </div>
+</div>

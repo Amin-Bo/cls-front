@@ -1,0 +1,39 @@
+
+.spinner{
+  width: 700px;
+  height: 890px;
+  background-color: rgba(44, 43, 42, 0.39);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main{
+  display: flex;
+}
+.form{
+  width: 46vw;
+  position: relative;
+}
+
+form{
+  background-color: rgba(11, 57, 100, 0.116);
+  padding: 20%;
+  display: flex;
+  flex-direction: column;
+}
+.row{
+  display: flex;
+  gap: 20px;
+}
+.col{
+ width: 50%;
+}
+mat-error , ng-invalid{
+  color: rgb(117, 24, 8);
+}
+.submit{
+  width: 12%;
+  position: absolute;
+  right: 0;
+  top: 37%;
+}

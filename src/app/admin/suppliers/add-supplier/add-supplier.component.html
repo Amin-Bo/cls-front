@@ -1,0 +1,50 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>{{ "Name" | translate}}</mat-label>
+      <input matInput formControlName="name" placeholder="Name...">
+
+    </mat-form-field>
+
+
+
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>{{ "Email" | translate}}</mat-label>
+    <input matInput formControlName="email" type="email" placeholder="email...">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>{{ "Phone" | translate}}</mat-label>
+    <input matInput formControlName="phone" type="number" placeholder="Phone...">
+    <mat-error *ngIf="form.get('phone').errors">
+      {{ "Phone should be 8 digits" | translate}}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>{{ "Address" | translate}}</mat-label>
+    <input matInput formControlName="address" type="text" placeholder="Address...">
+  </mat-form-field>
+
+
+<div class="row">
+  <div class="col">
+    <mat-form-field appearance="fill" style="width:100%;">
+      <mat-label>{{ "Contract start date" | translate}}</mat-label>
+      <input matInput formControlName="contract_start_date" [matDatepicker]="pickerIn">
+      <mat-datepicker-toggle matSuffix [for]="pickerIn"></mat-datepicker-toggle>
+      <mat-datepicker #pickerIn></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <mat-form-field appearance="fill" style="width:100%;">
+      <mat-label>{{ "Contract end date" | translate}}</mat-label>
+      <input matInput formControlName="contract_end_date" [matDatepicker]="pickerOut">
+      <mat-datepicker-toggle matSuffix [for]="pickerOut"></mat-datepicker-toggle>
+      <mat-datepicker #pickerOut></mat-datepicker>
+    </mat-form-field>
+  </div>
+</div>
+
+
+<button class="submit" mat-raised-button [color]="'primary'" type="submit" [disabled]="!form.valid">{{ "Add Supplier" | translate}}</button>
+</form>

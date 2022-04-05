@@ -1,0 +1,22 @@
+h2{
+    margin-left: 2%;
+    color: rgb(52, 52, 85);
+  }
+.chart{
+    background-color: #ffffff;
+    padding: 4% 0 0 2%;
+    height: 42vh;
+
+    /* border-radius: 28px; */
+    /* box-shadow: 12px 15px 20px 10px rgb(5 5 5 / 35%); */
+}
+
+mat-tab-group{
+    width: 70%;
+    position: absolute;
+    top: 9%;
+    left: 11%;
+}
+.sumbit{
+    margin-left: 20px;
+}

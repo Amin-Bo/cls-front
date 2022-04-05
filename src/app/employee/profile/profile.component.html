@@ -1,0 +1,48 @@
+<h1>Profile</h1>
+<div class="container">
+    <form [formGroup]="form" *ngIf="form" (submit)="onSubmit()">
+        <div class="row">
+            <mat-form-field class="col" appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput autocomplete="off" formControlName="lastName">
+            </mat-form-field>
+
+            <mat-form-field class="col" appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput autocomplete="off" formControlName="firstName" >
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput autocomplete="off" formControlName="email">
+            </mat-form-field>
+            
+            <mat-form-field class="col" appearance="outline">
+                <mat-label>CIN</mat-label>
+                <input matInput autocomplete="off" formControlName="cin">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="col" appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput autocomplete="off" formControlName="phone">
+            </mat-form-field>
+        </div>
+        
+        <div class="row">
+            <mat-form-field class="col" appearance="outline">
+                <mat-label>Job Title</mat-label>
+                <input matInput autocomplete="off" formControlName="job_title">
+            </mat-form-field>
+
+            <mat-form-field class="col" appearance="outline">
+                <mat-label>Department</mat-label>
+                <input matInput autocomplete="off" formControlName="department">
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button type="submit" color="primary">Submit</button>
+    </form>
+</div>

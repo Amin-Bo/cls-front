@@ -1,0 +1,72 @@
+form{
+  background-color: rgb(255, 255, 255);
+  padding: 2%;
+  width: 41vw;
+  height: 47vh;
+  border-radius: 21px;
+  margin-top: 10%;
+  margin-left: 4%;
+}
+
+.row {
+  width: 100%;
+}
+.col{
+  width: 46%;
+  margin-right: 20px;
+}
+.tab-element{
+  margin-top: 20px;
+}
+h4{
+  margin: 3px;
+}
+.submit{
+  width: 22%;
+  margin-top: 5%;
+  margin-left: 4%;
+}
+mat-tab-group{
+  position: relative;
+}
+
+.container{
+  position: relative;
+  display: flex;
+}
+.note{
+  position: absolute;
+  bottom: 26%;
+  right: 46%;
+  color: red;
+  font-size: 13px;
+}
+input[type="file"]::file-selector-button {
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  background: #ffd740;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: 4px;
+  overflow: visible;
+  transform: translate3d(0, 0, 0);
+  transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 1rem;
+}
+

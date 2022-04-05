@@ -1,0 +1,29 @@
+<h3> {{"Leave Request N°"|translate}} <span class="id">{{leave._id}}</span></h3>
+<div class="container">
+  <div class="infos">
+    {{"Employee Name"}} : <span>{{lastName}} {{firstName}}</span>
+    <mat-divider></mat-divider>
+    {{"Leave Start Date"}} : <span>{{leave.leave_start_date | date :"fullDate"}}</span>
+    <mat-divider></mat-divider>
+    {{"Leave End Date"}} : <span>{{leave.leave_end_date | date :"fullDate"}}</span>
+    <mat-divider></mat-divider>
+    {{"Leave Days"}} : <span>{{leave.leave_days}}</span>
+    <mat-divider></mat-divider>
+    {{"Leave Type"}} : <span>{{leave.type}}</span>
+    <mat-divider></mat-divider>
+    <div class="buttons">
+      <button mat-raised-button style="background-color: green; color: white;"
+        (click)="updateStatus('accepted',leave._id)">{{"Accept"|translate}}</button>
+      <button mat-raised-button style="background-color: rgb(97, 4, 4); color: white;"
+        (click)="updateStatus('declined',leave._id)">{{"Decline"|translate}}</button>
+    </div>
+  </div>
+  <mat-divider [vertical]="true"></mat-divider>
+  <div class="certif">
+    <pdf-viewer *ngIf="leave.file; else noFile " [class]="zoomClass" [src]="path" [render-text]="false"
+      [original-size]="false" [show-borders]="true" [zoom]="zoom" style="width: 700px; height: 400px" (click)="changeZoom()"></pdf-viewer>
+    <ng-template class="noFile" #noFile>
+        <img class="noFile" src="../../../../assets/no-file.png" alt="">
+    </ng-template>
+  </div>
+</div>

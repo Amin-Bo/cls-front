@@ -1,0 +1,94 @@
+<h2> {{"Dashboard" | translate}} </h2>
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="{{'Total' | translate}}">
+    <div class="chart">
+      <div class="col-md-12">
+        <div class="card text-left">
+          <div class="card-body">
+            <h4 class="card-title border-bottom">{{"Pie Chart Of All Time " | translate}}</h4>
+            <ngx-charts-advanced-pie-chart [results]="dataTotal" [gradient]="false" [scheme]="'cool'"
+              [view]="[1000,200]">
+            </ngx-charts-advanced-pie-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="{{'By Year' | translate}}">
+    <div class="chart">
+      <div class="col-md-12">
+        <div class="card text-left">
+          <div class="card-body">
+            <h4 class="card-title border-bottom">{{"Pie Chart By Year " | translate}}</h4>
+            <form [formGroup]="formByYear" *ngIf="formByYear">
+              <mat-form-field appearance="fill">
+                <mat-label>{{"Select Year" | translate}}</mat-label>
+                <mat-select (selectionChange)="onSelectYear()" formControlName="year">
+                  <mat-option *ngFor="let year of years" [value]="year">
+                    {{year}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </form>
+            <ngx-charts-advanced-pie-chart [results]="dataByYear" [gradient]="false" [scheme]="'cool'"
+              [view]="[1000,200]">
+            </ngx-charts-advanced-pie-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="{{'By Months' | translate}}">
+    <div class="chart">
+      <div class="col-md-12">
+        <div class="card text-left">
+          <div class="card-body">
+            <h4 class="card-title border-bottom">{{"Pie Chart By Range " | translate}}</h4>
+            <form [formGroup]="formByRange" (ngSubmit)="rangeChanged()">
+              <mat-form-field appearance="fill">
+                <mat-label>{{'Enter a date range' | translate}}</mat-label>
+                <mat-date-range-input [rangePicker]="picker" disabled>
+                  <input matStartDate formControlName="start" placeholder="Start date">
+                  <input matEndDate formControlName="end" placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker" disabled="false"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker disabled="false"></mat-date-range-picker>
+              </mat-form-field>
+              <button mat-raised-button color="primary" class="sumbit">{{"Submit" | translate}} </button>
+            </form>
+            <ngx-charts-advanced-pie-chart [results]="dataByRange" [gradient]="false" [scheme]="'cool'"
+              [view]="[1000,200]">
+            </ngx-charts-advanced-pie-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="{{'By Supplier' | translate}}">
+    <div class="chart">
+      <div class="col-md-12">
+        <div class="card text-left">
+          <div class="card-body">
+            <h4 class="card-title border-bottom">{{"Pie Chart By Supplier " | translate}}</h4>
+            <form [formGroup]="formBySupplier" *ngIf="formBySupplier">
+              <mat-form-field appearance="fill">
+                <mat-label>{{"Select Supplier" | translate}}</mat-label>
+                <mat-select (selectionChange)="onSelectSupplier()" formControlName="suppControl">
+                  <mat-option *ngFor="let supplier of suppliers" [value]="supplier.id">
+                    {{supplier.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </form>
+            <ngx-charts-advanced-pie-chart [results]="dataBySupplier" [gradient]="false" [scheme]="'cool'"
+              [view]="[1000,200]">
+            </ngx-charts-advanced-pie-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
