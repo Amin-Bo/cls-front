@@ -11,21 +11,21 @@ import { LeaveService } from 'src/app/services/leave.service';
 export class ActionLeaveComponent implements OnInit {
   zoom : number = 1;
   zoomed : boolean = false;
-  path : string ="http://localhost:3000/assets/leaves/";
+  path : string ="https://cls-rest.herokuapp.com/assets/leaves/";
   constructor(
     @Inject(MAT_DIALOG_DATA) public data : {id:string} ,
-    public dialogRef: MatDialogRef<ActionLeaveComponent>, 
+    public dialogRef: MatDialogRef<ActionLeaveComponent>,
     private matSnack: MatSnackBar,
     private leaveService: LeaveService
     ) { }
-  
+
   leave:any = {};
   lastName : string;
   firstName : string;
   id : string= this.data.id;
   zoomClass : string = "zoomIn";
   ngOnInit(): void {
-    this.leaveService.getLeavesById(this.id).subscribe((res:any) => {    
+    this.leaveService.getLeavesById(this.id).subscribe((res:any) => {
       this.lastName = res.from.lastName;
       this.firstName = res.from.firstName;
       this.path = this.path + res.file;
@@ -49,7 +49,7 @@ export class ActionLeaveComponent implements OnInit {
       this.zoom = this.zoom - 0.3;
       this.zoomed = false;
       this.zoomClass = "zoomIn";
-  
+
     }
   }
 

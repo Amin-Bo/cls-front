@@ -66,7 +66,7 @@ export class CertifComponent implements OnInit , AfterViewInit {
   sendRequest(){
     this.employeeService.getEmployeeById().subscribe((res : Employee) =>{
       //add type to res
-      res.type = this.certifType;     
+      res.type = this.certifType;
       this.employeeService.addRequest(res).subscribe(
         (res) => {
           this.snackbar.open('Request sent successfully', 'close', {
@@ -77,7 +77,7 @@ export class CertifComponent implements OnInit , AfterViewInit {
           this.requestService.getRequestsNotifications();
         }
       );
-    });    
+    });
   }
 
   applyFilter(event: Event) {
@@ -93,6 +93,6 @@ export class CertifComponent implements OnInit , AfterViewInit {
   }
 
   download(path: string){
-    file.saveAs('http://localhost:3000/assets/certifications/'+path, `${this.certifType} certification.pdf`);
+    file.saveAs('https://cls-rest.herokuapp.com/assets/certifications/'+path, `${this.certifType} certification.pdf`);
   }
 }
