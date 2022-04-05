@@ -24,15 +24,15 @@ export class ValidateReqComponent implements OnInit {
   reqSub : Subscription;
   form : FormGroup;
   pdf : string = null;
-  path : string = "http://localhost:3000/assets/certifications/";
+  path : string = "https://cls-rest.herokuapp.com/assets/certifications/";
   file : string = null;
   sender : string = null;
   type : string;
   constructor(  private route: ActivatedRoute,
-                private router : Router , 
-                private reqService : RequestsService, 
-                private http:HttpClient, 
-                private snackbar: MatSnackBar , 
+                private router : Router ,
+                private reqService : RequestsService,
+                private http:HttpClient,
+                private snackbar: MatSnackBar ,
               ) { }
   ngOnInit(): void {
     this.initializeView();
@@ -42,7 +42,7 @@ export class ValidateReqComponent implements OnInit {
     this.reqService.getRequest(this.id);
     this.reqSub = this.reqService.oneReqUpdateListener().subscribe((req : Request) =>{
       this.type = req[0].type;
-      this.sender= req[0].from._id;      
+      this.sender= req[0].from._id;
       this.pdf =this.path + req[0].file;
       this.file = req[0].file;
       this.isLoading = false;
@@ -60,7 +60,7 @@ export class ValidateReqComponent implements OnInit {
 
   getPDF(){
     this.isLoading = true;
-    this.http.post('http://localhost:3000/api/request/preview',{
+    this.http.post('https://cls-rest.herokuapp.com/api/request/preview',{
       id : this.id,
       firstName : this.form.get('firstName')?.value,
       lastName : this.form.get('lastName')?.value,
@@ -72,14 +72,14 @@ export class ValidateReqComponent implements OnInit {
       file : this.file,
       user_id : this.sender,
       type : this.type
-    }).subscribe((res : string) => {  
+    }).subscribe((res : string) => {
       this.pdf= this.path + res;
       this.isLoading = false;
     });
   }
 
   validate(){
-    this.http.post('http://localhost:3000/api/request/updateStatus/'+this.sender,{
+    this.http.post('https://cls-rest.herokuapp.com/api/request/updateStatus/'+this.sender,{
       status : "done",
       id : this.id,
       firstName : this.form.get('firstName')?.value,

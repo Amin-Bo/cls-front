@@ -13,13 +13,13 @@ export class InvoicesDetailsComponent implements OnInit {
 
   constructor(private invoiceService : InvoicesService , private route : ActivatedRoute) { }
   invoice_id : string;
-  path : string = "http://localhost:3000/assets/invoices/";
+  path : string = "https://cls-rest.herokuapp.com/assets/invoices/";
   pdf : string;
   form : FormGroup;
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.invoiceService.getInvoiceById(params.id).subscribe((invoice : Invoice)=>{     
-        this.invoice_id = invoice._id;   
+      this.invoiceService.getInvoiceById(params.id).subscribe((invoice : Invoice)=>{
+        this.invoice_id = invoice._id;
         this.pdf = this.path + invoice.file;
         this.form = new FormGroup({
           date : new FormControl(invoice.date , [Validators.required]),
