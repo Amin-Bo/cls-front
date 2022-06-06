@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api_URL : 'http://localhost:3000'
+  api_URL : 'https://proud-teal-viper.cyclic.app'
 };

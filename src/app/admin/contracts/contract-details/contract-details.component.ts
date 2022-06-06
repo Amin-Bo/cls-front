@@ -13,7 +13,7 @@ import { ContractsService } from 'src/app/services/contracts.service';
 export class ContractDetailsComponent implements OnInit {
   isLoading : boolean = true;
   contract_id : string;
-  path : string = "http://localhost:3000/assets/contracts/";
+  path : string = "http://proud-teal-viper.cyclic.app/assets/contracts/";
   pdf : string = null;
   form :FormGroup;
   indexTab :number;
@@ -24,7 +24,7 @@ export class ContractDetailsComponent implements OnInit {
       this.contract_id = params.id;
     });
     this.getContractById();
- 
+
   }
 
   getContractById(){
@@ -45,7 +45,7 @@ export class ContractDetailsComponent implements OnInit {
           default:
             break;
         }
-        
+
         this.form = new FormGroup({
           date_signature : new FormControl(res.date_signature),
           expires_at : new FormControl(res.expires_at),

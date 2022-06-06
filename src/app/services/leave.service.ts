@@ -6,7 +6,7 @@ import { Leave } from '../models/leave.model';
   providedIn: 'root'
 })
 export class LeaveService {
-  url : string = "http://localhost:3000/api/leave";
+  url : string = "http://proud-teal-viper.cyclic.app/api/leave";
 
   constructor(private http : HttpClient) { }
 

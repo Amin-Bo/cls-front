@@ -13,19 +13,19 @@ import { ActionLeaveDialogComponent } from '../action-leave-dialog/action-leave-
 export class ActionLeaveComponent implements OnInit {
   zoom : number = 1;
   zoomed : boolean = false;
-  path : string ="http://localhost:3000/assets/leaves/";
+  path : string ="http://proud-teal-viper.cyclic.app/assets/leaves/";
   file_type : string;
   leaves_left : number;
   user_id : string;
   form : FormGroup;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data : {id:string} ,
-    public dialogRef: MatDialogRef<ActionLeaveComponent>, 
+    public dialogRef: MatDialogRef<ActionLeaveComponent>,
     private matSnack: MatSnackBar,
     private leaveService: LeaveService,
     private matDialog : MatDialog
     ) { }
-  
+
   leave:any = {};
   lastName : string;
   firstName : string;
@@ -70,7 +70,7 @@ export class ActionLeaveComponent implements OnInit {
     }
   }
 
-  
+
   changeZoom(){
     if (!this.zoomed) {
       this.zoom = this.zoom + 0.3;
@@ -81,7 +81,7 @@ export class ActionLeaveComponent implements OnInit {
       this.zoom = this.zoom - 0.3;
       this.zoomed = false;
       this.zoomClass = "zoomIn";
-  
+
     }
   }
 

@@ -29,12 +29,12 @@ export class LeaveComponent implements OnInit ,AfterViewInit{
 
   userLocal :User = this.sharedService.getUserFromLocalStorage();
   constructor(
-              private sharedService: SharedService , 
+              private sharedService: SharedService ,
               private leaveService :LeaveService ,
               public dialog: MatDialog,
               private employeeService : EmployeeService
               ){}
-  
+
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
@@ -51,11 +51,11 @@ export class LeaveComponent implements OnInit ,AfterViewInit{
       this.sharedService.UPDATE_LEAVES_LEFT_IN_LOCAL_STORAGE(data.leaves_left);
     });
   }
-  
+
   getRequests(){
     this.leaveService.getLeavesByUserId(this.userLocal._id).subscribe( (leaves:Leave[]) =>{
       if (leaves) {
-        this.leaves_left = leaves[0]?.from.leaves_left;    
+        this.leaves_left = leaves[0]?.from.leaves_left;
         this.dataSource.data = leaves.map((res:Leave,index:number) =>{
         return {
           n: index + 1,
@@ -98,6 +98,6 @@ export class LeaveComponent implements OnInit ,AfterViewInit{
   }
 
   download(path: string){
-    file.saveAs('http://localhost:3000/assets/leaves/accepted/'+path, `attestation_de_congé.pdf`);
+    file.saveAs('http://proud-teal-viper.cyclic.app/assets/leaves/accepted/'+path, `attestation_de_congé.pdf`);
   }
 }
