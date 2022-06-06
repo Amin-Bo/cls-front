@@ -1,0 +1,9 @@
+<div *ngIf="data.note ;else noNote">
+    <h3>{{"Admin Notes :"|translate}}</h3>
+    <p>{{data.note}}</p>
+</div>
+<ng-template #noNote>
+    <p class="noNote">
+        {{"There is no note"|translate}}
+    </p>
+</ng-template>

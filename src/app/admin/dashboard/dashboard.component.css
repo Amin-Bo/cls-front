@@ -1,0 +1,241 @@
+::ng-deep .mat-calendar-body-active > .mat-calendar-body-today {
+  color: rgb(255, 255, 255);
+  background-color: blue;
+}
+
+
+.header{
+  margin-top: 3%;
+  margin-left: 2%;
+  color: rgb(52, 52, 85);
+}
+
+.demo-inline-calendar-card{
+  width: 300px;
+  height: 379px;
+}
+.dashboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard .first-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1vw;
+  margin: 2%;
+  height: 40vh;
+  margin-bottom: 1%;
+}
+
+.dashboard .first-area .charts {
+  width: 60vw;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.dashboard .first-area .calendar {
+  width: 20vw;
+  border-radius: 20px;
+}
+
+.dashboard .second-area {
+  width: 92%;
+  margin-left: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dashboard .second-area .general-numbers {
+  background-color: #F6F8FE;
+  width: 50%;
+  position: relative;
+  border-radius: 21px;
+  padding-bottom: 1%;
+}
+
+.dashboard .second-area .general-numbers h3 {
+  color: #2c2c2c;
+  font-size: 1.5vw;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.dashboard .second-area .general-numbers .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 20px;
+}
+
+.dashboard .second-area .general-numbers .cards .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 300px;
+  height: 80px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+  gap: 10px;
+  box-shadow: 0px 1px 9px rgba(0, 0, 0, 0.10);
+}
+
+.dashboard .second-area .general-numbers .cards .card .left-card {
+  width: 80px;
+  padding: 3px;
+}
+
+.dashboard .second-area .general-numbers .cards .card .left-card img {
+  width: 55px;
+  border: 1px solid #00000029;
+  padding: 10px;
+  -webkit-box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.3);
+  border-radius: 14px;
+  margin: 8px;
+}
+
+.dashboard .second-area .general-numbers .cards .card .right-card {
+  padding-top: 10px;
+}
+
+.dashboard .second-area .general-numbers .cards .card .right-card .card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 150px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2c2c2c;
+}
+
+.dashboard .second-area .general-numbers .cards .card .right-card .card-stats {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #2c2c2c;
+  overflow: hidden;
+  width: 150px;
+  text-overflow: ellipsis;
+}
+
+.dashboard .second-area .requests {
+  background-color: #F6F8FE;
+  width: 25%;
+  height: 417px;
+  position: relative;
+  border-radius: 21px;
+  padding-bottom: 1%;
+  margin-left: 2%;
+}
+
+.dashboard .second-area .requests h3 {
+  color: #2c2c2c;
+  font-size: 1.5vw;
+  font-weight: bold;
+  margin: 20px;
+  
+}
+
+.dashboard .second-area .requests .requests-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 20px;
+  margin-top: 50px;
+  gap: 40px;
+}
+
+.dashboard .second-area .requests .requests-list .request-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.dashboard .second-area .requests .requests-list .request-item #first {
+  width: 200px;
+  overflow: hidden;
+  font-weight: 500;
+  text-overflow: ellipsis;
+}
+
+.dashboard .second-area .requests .requests-list .request-item #second {
+  width: 100px;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dashboard .second-area .genders {
+  background-color: #F6F8FE;
+  width: 25%;
+  position: relative;
+  border-radius: 21px;
+  padding-bottom: 1%;
+  margin-left: 2%;
+  padding: 13px;
+}
+
+.dashboard .second-area .genders h3 {
+  color: #2c2c2c;
+  font-size: 1.5vw;
+  font-weight: bold;
+  margin: 20px;
+}
+
+h2 {
+  margin-top: 3%;
+  margin-left: 2%;
+  color: rgb(52, 52, 85);
+}
+h3{
+    color: #7599ff;
+}
+
+.chart {
+  background-color: #ffffff;
+  padding: 3% 0 0 6%;
+}
+
+mat-tab-group {
+  position: relative;
+  margin-top: 0%;
+  background-color: white;
+  border-radius: 25px;
+}
+
+.sumbit {
+  margin-left: 20px;
+}
+
+.card-body {
+  position: relative;
+}
+
+form {
+  position: absolute;
+  right: 7%;
+  top: -8%;
+}
+::ng-deep .mat-tab-body-content {
+  overflow: hidden !important;
+}

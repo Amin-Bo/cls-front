@@ -1,0 +1,56 @@
+
+.spinner{
+  width: 700px;
+  height: 890px;
+  background-color: rgba(44, 43, 42, 0.39);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main{
+  display: flex;
+}
+.form{
+  width: 46vw;
+  position: relative;
+}
+
+form{
+  background-color: rgb(255 255 255);
+  padding: 8% 14%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  margin-top: 18%;
+  width: 88%;
+  margin-left: 5%;
+  position: relative;
+}
+.row{
+  display: flex;
+  gap: 20px;
+}
+.col{
+ width: 50%;
+}
+mat-error , ng-invalid{
+  color: rgb(117, 24, 8);
+}
+.submit{
+  width: 12%;
+  position: absolute;
+  right: 12px;
+  top: 44%;
+}
+
+.preview-icon{
+  width: 20px;
+  height: 20px;
+}
+.note{
+  color: red;
+  bottom: 11px;
+  position: absolute;
+  right: 21px;
+  font-size: 13px;
+}

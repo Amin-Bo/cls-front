@@ -1,0 +1,88 @@
+h2{
+    margin-left: 2%;
+    color: rgb(52, 52, 85);
+  }
+  
+  form{
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 2%;
+    width: 30vw;
+  }
+   .row{
+     display: flex;
+     gap: 20px;
+   }
+   .col{
+    width: 50%;
+   }
+  .submit{
+    width: 30%;
+    margin-left: 34%;
+  
+  }
+  .model-bg{
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    background-color: #00000034;
+    width: 100vw;
+    height: 100vh;
+  }
+  .close-button{
+    font-size: 28px;
+    z-index: 10000;
+    position: fixed;
+    right: 27%;
+    top: 17%;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border: none;
+    text-align: center;
+    line-height: 33px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .add-btn{
+    position: absolute;
+    right: 11%;
+  }
+  table,mat-paginator {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .container{
+    margin-top: 10vh;
+    position: relative;
+  }
+  .filter{
+    width: 80%;
+    margin-left: 8.3vw;
+  }
+  .example-loading-shade {
+    position: absolute;
+    top: 137px;
+    left: 156px;
+    bottom: 56px;
+    right: 156px;
+    background: rgba(0, 0, 0, 0.082);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-table-container {
+    position: relative;
+    min-height: 100px;
+    max-height: 400px;
+    overflow: auto;
+  }
+  .perso-elevation{
+    box-shadow: -8px -3px 20px -5px rgb(0 0 0 / 20%), 4px -8px 12px 0px rgb(0 0 0 / 12%);
+  }
+  

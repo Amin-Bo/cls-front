@@ -1,0 +1,32 @@
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+h2{
+  margin-left: 2%;
+  color: rgb(52, 52, 85);
+}
+
+.cards-container{
+  display: flex;
+  grid-gap: 18px;
+  flex-direction: row;
+  margin: 2%;
+  flex-wrap: wrap;
+  margin-left: 11%;
+  margin-top: 4%;
+}
+.card{
+  width: 20vw;
+}
+.card-content{
+  margin-right: 15%;
+}
+
+mat-card-actions{
+  margin-bottom: -12px !important;
+}
+.add-btn{
+  position: absolute;
+  right: 11%;
+}

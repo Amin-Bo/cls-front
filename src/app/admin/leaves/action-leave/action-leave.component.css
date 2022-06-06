@@ -1,0 +1,58 @@
+.id{
+    font-size: 0.8em;
+    font-weight: 400;
+}
+
+mat-divider{
+    margin: 3% 0;
+}
+
+pdf-viewer{ 
+    margin-right: 3vw;
+}
+
+.infos{
+    margin-top: 3%;
+    margin-left: 1%;
+    width: 22vw;
+}
+.infos_noFile{
+    margin-top: 0%;
+    margin-left: 1%;
+    width: 23vw;
+}
+.buttons{
+    display: flex;
+    gap: 3%;
+}
+button{
+    width: 26%;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+}
+
+
+.zoomIn{
+    cursor: zoom-in;
+}
+.zoomOut{
+    cursor: zoom-out;
+}
+.label{
+    font-size: 1em;
+    font-weight: 600;
+}
+.noFile{
+    margin-left: 66%;
+}
+
+.certif_img{
+    width: 77%;
+    margin-left: 12%;
+}
+p-image{
+    margin-left: 9%;
+}

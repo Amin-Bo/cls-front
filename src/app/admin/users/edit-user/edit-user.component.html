@@ -1,0 +1,75 @@
+<form (submit)="onSubmit()" [formGroup]="form" *ngIf="form">
+  <div class="row">
+    <mat-form-field class="col" appearance="outline">
+      <mat-label>{{'Last Name'|translate}}</mat-label>
+      <input matInput autocomplete="off" formControlName="lastName">
+    </mat-form-field>
+
+    <mat-form-field class="col" appearance="outline">
+      <mat-label>{{'First Name'|translate}}</mat-label>
+      <input matInput autocomplete="off" formControlName="firstName">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field class="col" appearance="outline">
+      <mat-label>{{'Email'|translate}}</mat-label>
+      <input matInput autocomplete="off" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="col" appearance="outline">
+      <mat-label>{{'CIN'|translate}}</mat-label>
+      <input matInput autocomplete="off" formControlName="cin">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field class="col" appearance="outline">
+      <mat-label>{{'Phone'|translate}}</mat-label>
+      <input matInput autocomplete="off" formControlName="phone">
+    </mat-form-field>
+    <mat-form-field class="col" appearance="outline">
+      <mat-label>{{'Leaves Left'|translate}}</mat-label>
+      <input matInput autocomplete="off" formControlName="leaves_left">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>{{ "Gender" | translate}}</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="male">{{ "Male" | translate}}</mat-option>
+          <mat-option value="female">{{ "Female" | translate}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline" class="col">
+      <mat-label>{{ "Date In" | translate}}</mat-label>
+      <input matInput formControlName="date_in" [matDatepicker]="pickerIn">
+      <mat-datepicker-toggle matSuffix [for]="pickerIn"></mat-datepicker-toggle>
+      <mat-datepicker #pickerIn></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col">
+      <mat-label>{{ "Date Out" | translate}}</mat-label>
+      <input matInput formControlName="date_out" [matDatepicker]="pickerOut">
+      <mat-datepicker-toggle matSuffix [for]="pickerOut"></mat-datepicker-toggle>
+      <mat-datepicker #pickerOut></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field class="col" appearance="outline">
+      <mat-label>{{'Job Title'|translate}}</mat-label>
+      <input matInput autocomplete="off" formControlName="job_title">
+    </mat-form-field>
+
+    <mat-form-field class="col" appearance="outline">
+      <mat-label>{{'Department'|translate}}</mat-label>
+      <input matInput autocomplete="off" formControlName="department">
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button type="submit" color="primary">{{"SUBMIT" | translate}}</button>
+</form>

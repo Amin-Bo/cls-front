@@ -1,0 +1,52 @@
+<h2 class="title"> {{'Notifications'|translate}} </h2>
+<button mat-raised-button color="primary" class="add-btn" (click)="ClearNotifications()"> {{ "Clear Notifications" | translate}}</button>
+
+<div class="cards-container">
+
+  <mat-card class="card" *ngFor="let notification of notifications">
+    <div *ngIf="notification.type == 'document'" style="margin: 0;padding: 0;">
+      <mat-card-title-group>
+        <mat-card-title>{{'Document Request'| translate}}</mat-card-title>
+        <mat-card-subtitle>{{notification.date | date:'mediumDate'}}</mat-card-subtitle>
+        <mat-icon class="side_nav_icons" style="color: rgb(97, 27, 211);">text_snippet</mat-icon>
+      </mat-card-title-group>
+      <mat-card-content>
+        You have a document request from <b>{{notification.details.user_name}} </b>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button routerLink="../requests/{{notification.link}}">{{"View" | translate}}</button>
+        <button mat-button (click)="DeleteNotification(notification._id)">{{"Delete" | translate}}</button>
+      </mat-card-actions>
+    </div>
+
+    <div *ngIf="notification.type == 'leave'" style="margin: 0;padding: 0;">
+      <mat-card-title-group>
+        <mat-card-title>Leave Request</mat-card-title>
+        <mat-card-subtitle>{{notification.date | date:'mediumDate'}}</mat-card-subtitle>
+        <mat-icon class="side_nav_icons" style="color: rgb(175, 13, 148);">work_off</mat-icon>
+      </mat-card-title-group>
+      <mat-card-content>
+        You have a leave request from <b>{{notification.details.user_name}} </b> for
+        <b>{{notification.details.days}}</b> days
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="onClickAction(notification.link)">View</button>
+        <button mat-button (click)="DeleteNotification(notification._id)">{{"Delete" | translate}}</button>
+      </mat-card-actions>
+    </div>
+    <div *ngIf="notification.type == 'contract'" style="margin: 0;padding: 0;">
+      <mat-card-title-group>
+        <mat-card-title>Contract Expiring Soon</mat-card-title>
+        <mat-card-subtitle>{{notification.date | date:'mediumDate'}}</mat-card-subtitle>
+        <mat-icon class="side_nav_icons" style="color: rgb(107, 11, 35);">bookmark</mat-icon>
+      </mat-card-title-group>
+      <mat-card-content>
+        The contract with <b> {{notification.details.supplier_name}} </b> will expire soon
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button routerLink="../contracts/{{notification.link}}">View</button>
+        <button mat-button (click)="DeleteNotification(notification._id)">{{"Delete" | translate}}</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</div>

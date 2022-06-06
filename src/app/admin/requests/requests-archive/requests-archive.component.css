@@ -1,0 +1,65 @@
+h2{
+    margin-left: 2%;
+    color: rgb(52, 52, 85);
+  }
+  
+  form{
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 2%;
+    width: 30vw;
+  }
+   .row{
+     display: flex;
+     gap: 20px;
+   }
+   .col{
+    width: 50%;
+   }
+  .submit{
+    width: 30%;
+    margin-left: 34%;
+  
+  }
+  .model-bg{
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    background-color: #00000034;
+    width: 100vw;
+    height: 100vh;
+  }
+  .close-button{
+    font-size: 28px;
+    z-index: 10000;
+    position: fixed;
+    right: 27%;
+    top: 17%;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border: none;
+    text-align: center;
+    line-height: 33px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .add-btn{
+    position: absolute;
+    right: 11%;
+  }
+  table,mat-paginator {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .container{
+    margin-top: 10vh;
+  }
+  .filter{
+    width: 80%;
+    margin-left: 8.3vw;
+  }
+  

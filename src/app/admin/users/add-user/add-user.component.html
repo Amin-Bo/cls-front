@@ -1,0 +1,85 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+    <div class="row">
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>{{ "First Name" | translate}}</mat-label>
+        <input matInput formControlName="firstName" >
+
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>{{ "Last Name" | translate}}</mat-label>
+        <input matInput formControlName="lastName">
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>{{ "Email" | translate}}</mat-label>
+      <input matInput formControlName="email" type="email" >
+    </mat-form-field>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>{{ "Password" | translate}}</mat-label>
+          <input matInput formControlName="password" type="password" >
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="outline" class="col" style="width: 100%;">
+          <mat-label>{{ "Gender" | translate}}</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option value="male">{{ "Male" | translate}}</mat-option>
+            <mat-option value="female">{{ "Female" | translate}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    
+    <div class="row">
+    <mat-form-field appearance="outline" class="col">
+      <mat-label>{{ "Phone Number" | translate}}</mat-label>
+      <input matInput formControlName="phone" type="text">
+      <mat-error *ngIf="form.get('phone').errors">
+        {{ "Phone should be 8 digits" | translate}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="col">
+      <mat-label>{{ "National ID Card" | translate}}</mat-label>
+      <input matInput formControlName="cin" type="text" >
+      <mat-error *ngIf="form.get('cin').errors">
+        {{ "CIN should be 8 digits" | translate}}
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <mat-form-field appearance="outline" style="width:100%;">
+        <mat-label>{{ "Date In" | translate}}</mat-label>
+        <input matInput formControlName="date_in" [matDatepicker]="pickerIn">
+        <mat-datepicker-toggle matSuffix [for]="pickerIn"></mat-datepicker-toggle>
+        <mat-datepicker #pickerIn></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field appearance="outline" style="width:100%;">
+        <mat-label>{{ "Date Out" | translate}}</mat-label>
+        <input matInput formControlName="date_out" [matDatepicker]="pickerOut">
+        <mat-datepicker-toggle matSuffix [for]="pickerOut"></mat-datepicker-toggle>
+        <mat-datepicker #pickerOut></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline" class="col">
+      <mat-label>{{ "Job Title" | translate}}</mat-label>
+      <input formControlName="job_title" matInput >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col">
+      <mat-label>{{ "Department" | translate}}</mat-label>
+      <input  formControlName="department" matInput>
+    </mat-form-field>
+  </div>
+
+  <button class="submit" mat-raised-button [color]="'primary'" type="submit" [disabled]="form.invalid">{{ "Add User" | translate}}</button>
+</form>

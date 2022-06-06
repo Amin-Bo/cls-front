@@ -1,0 +1,86 @@
+<div class="main">
+
+  <div class="form">
+    <form [formGroup]="form" (submit)="onSubmit()" *ngIf="form">
+      <div class="row">
+        <mat-form-field appearance="outline" class="col">
+          <mat-label>{{ "First Name" | translate}}</mat-label>
+          <input matInput formControlName="firstName">
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col">
+          <mat-label>{{ "Last Name" | translate}}</mat-label>
+          <input matInput formControlName="lastName">
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="col" style="width: 100%; margin-bottom: 2%;">
+        <mat-label>{{ "National ID Card" | translate}}</mat-label>
+        <input matInput formControlName="cin" type="text">
+        <mat-error *ngIf="form.get('cin').errors">
+          {{ "ID should be 8 digits" | translate}}
+        </mat-error>
+      </mat-form-field>
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline" style="width:100%;">
+            <mat-label>{{ "Date In" | translate}}</mat-label>
+            <input matInput formControlName="date_in" [matDatepicker]="pickerIn">
+            <mat-datepicker-toggle matSuffix [for]="pickerIn"></mat-datepicker-toggle>
+            <mat-datepicker #pickerIn></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline" style="width:100%;">
+            <mat-label>{{ "Date Out" | translate}}</mat-label>
+            <input matInput formControlName="date_out" [matDatepicker]="pickerOut" required="false">
+            <mat-datepicker-toggle matSuffix [for]="pickerOut"></mat-datepicker-toggle>
+            <mat-datepicker #pickerOut></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="outline" class="col">
+          <mat-label>{{ "Job Title" | translate}}</mat-label>
+          <input formControlName="job_title" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col">
+          <mat-label>{{ "Department" | translate}}</mat-label>
+          <input formControlName="department" matInput>
+        </mat-form-field>
+      </div>
+
+      <button class="submit" mat-raised-button [color]="'primary'" type="submit">{{ "Preview" | translate}} <img
+          class="preview-icon" src="../../../../assets/view.png" alt=""></button>
+      <div class="row">
+        <button mat-raised-button [color]="'primary'" type="button" (click)="validate()"
+          class="col">{{ "Validate" | translate}}</button>
+        <button mat-raised-button [color]="'warn'" type="button" (click)="decline()"
+          class="col">{{ "Decline" | translate}}</button>
+      </div>
+      <p class="note">{{"Note : Previewing the file will not validate it."|translate}}</p>
+    </form>
+  </div>
+
+
+  <div class="preview">
+
+    <div *ngIf="isLoading;else pdfTemplate" class="spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <ng-template #pdfTemplate>
+      <pdf-viewer [src]="pdf" [render-text]="false" [original-size]="false" [show-borders]="true" [zoom]="1"
+        style="width: 700px; height: 890px"></pdf-viewer>
+    </ng-template>
+    <!-- <button mat-raised-button color="primary" (click)="download()">Download</button> -->
+
+
+  </div>
+
+</div>

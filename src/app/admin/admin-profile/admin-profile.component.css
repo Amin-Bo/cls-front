@@ -1,0 +1,19 @@
+
+
+.row{
+    width: 100%;
+}
+
+.col{
+    width: 45%;
+    margin-left: 20px;
+}
+
+button{
+    margin-left: 42%;
+    width: auto;
+}
+
+mat-spinner{
+    margin-left: 42%;
+}

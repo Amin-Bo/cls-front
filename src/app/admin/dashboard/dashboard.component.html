@@ -1,0 +1,182 @@
+  <div class="dashboard">
+      <div class="header">
+          <h1>{{"Dashboard" | translate}}</h1>
+      </div>
+      <div class="first-area">
+          <div class="charts">
+            <mat-tab-group mat-align-tabs="center">
+              <mat-tab label="{{'Total' | translate}}">
+                <div class="chart">
+                  <div class="col-md-12">
+                    <div class="card text-left">
+                      <div class="card-body">
+                        <h4 class="card-title border-bottom">{{"Pie Chart Of All Time" | translate}}</h4>
+                        <ngx-charts-advanced-pie-chart [results]="dataTotal" [gradient]="false" [scheme]="'cool'"
+                          [view]="[1000,200]" [label]="'Total(DT)'">
+                        </ngx-charts-advanced-pie-chart>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+            
+              <mat-tab label="{{'By Year' | translate}}">
+                <div class="chart">
+                  <div class="col-md-12">
+                    <div class="card text-left">
+                      <div class="card-body">
+                        <h4 class="card-title border-bottom">{{"Pie Chart By Year" | translate}}</h4>
+                        <form [formGroup]="formByYear" *ngIf="formByYear">
+                          <mat-form-field appearance="outline">
+                            <mat-label>{{"Select Year" | translate}}</mat-label>
+                            <mat-select (selectionChange)="onSelectYear()" formControlName="year">
+                              <mat-option *ngFor="let year of years" [value]="year">
+                                {{year}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </form>
+                        <ngx-charts-advanced-pie-chart [results]="dataByYear" [gradient]="false" [scheme]="'cool'"
+                          [view]="[1000,200]">
+                        </ngx-charts-advanced-pie-chart>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+            
+              <mat-tab label="{{'By Months' | translate}}">
+                <div class="chart">
+                  <div class="col-md-12">
+                    <div class="card text-left">
+                      <div class="card-body">
+                        <h4 class="card-title border-bottom">{{"Pie Chart By Range" | translate}}</h4>
+                        <form [formGroup]="formByRange" (ngSubmit)="rangeChanged()">
+                          <mat-form-field appearance="outline">
+                            <mat-label>{{'Enter a date range' | translate}}</mat-label>
+                            <mat-date-range-input [rangePicker]="picker" disabled>
+                              <input matStartDate formControlName="start" placeholder="Start date">
+                              <input matEndDate formControlName="end" placeholder="End date">
+                            </mat-date-range-input>
+                            <mat-datepicker-toggle matSuffix [for]="picker" disabled="false"></mat-datepicker-toggle>
+                            <mat-date-range-picker #picker disabled="false"></mat-date-range-picker>
+                          </mat-form-field>
+                          <button mat-raised-button color="primary" class="sumbit">{{"Submit" | translate}} </button>
+                        </form>
+                        <ngx-charts-advanced-pie-chart [results]="dataByRange" [gradient]="false" [scheme]="'cool'"
+                          [view]="[1000,200]">
+                        </ngx-charts-advanced-pie-chart>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+            
+              <mat-tab label="{{'By Supplier' | translate}}">
+                <div class="chart">
+                  <div class="col-md-12">
+                    <div class="card text-left">
+                      <div class="card-body">
+                        <h4 class="card-title border-bottom">{{"Pie Chart By Supplier" | translate}}</h4>
+                        <form [formGroup]="formBySupplier" *ngIf="formBySupplier">
+                          <mat-form-field appearance="outline">
+                            <mat-label>{{"Select Supplier" | translate}}</mat-label>
+                            <mat-select (selectionChange)="onSelectSupplier()" formControlName="suppControl">
+                              <mat-option *ngFor="let supplier of suppliers" [value]="supplier.id">
+                                {{supplier.name}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </form>
+                        <ngx-charts-advanced-pie-chart [results]="dataBySupplier" [gradient]="false" [scheme]="'cool'"
+                          [view]="[1000,200]">
+                        </ngx-charts-advanced-pie-chart>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+          <div class="calendar">
+            <mat-card class="demo-inline-calendar-card">
+              <mat-calendar></mat-calendar>
+            </mat-card>
+          </div>
+      </div>
+      <div class="second-area">
+
+          <div class="general-numbers">
+              <h3>{{"General Numbers" | translate}}</h3>
+              <div class="cards" *ngIf="stats">
+                  <div class="card">
+                      <div class="left-card">
+                          <img src="../../../assets/icons/dashboard/people.png" alt="">
+                      </div>
+                      <div class="right-card">
+                          <p class="card-title">{{"USERS" | translate}}</p>
+                          <p class="card-stats">{{ +stats.USERS - 1}}</p>
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="left-card">
+                          <img src="../../../assets/icons/dashboard/contract.png" alt="">
+                      </div>
+                      <div class="right-card">
+                          <p class="card-title">{{"CONTRACTS" | translate}}</p>
+                          <p class="card-stats">{{stats.CONTRACTS}}</p>
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="left-card">
+                          <img src="../../../assets/icons/dashboard/invoice.png" alt="">
+                      </div>
+                      <div class="right-card">
+                          <p class="card-title">{{"INVOICES" | translate}}</p>
+                          <p class="card-stats">{{stats.INVOICES}}</p>
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="left-card">
+                          <img src="../../../assets/icons/dashboard/license.png" alt="">
+                      </div>
+                      <div class="right-card">
+                          <p class="card-title">{{"CERTIFICATIONS" | translate}}</p>
+                          <p class="card-stats">{{stats.REQUESTS}}</p>
+                      </div>
+                  </div>
+                  <div class="card">
+                      <div class="left-card">
+                          <img src="../../../assets/icons/dashboard/factory.png" alt="">
+                      </div>
+                      <div class="right-card">
+                          <p class="card-title">{{"SUPPLIERS" | translate}}</p>
+                          <p class="card-stats">{{stats.SUPPLIERS}}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="requests">
+              <h3 class="title">{{"Requests" | translate}}</h3>
+              <div class="requests-list">
+                  <div class="request-item">
+                      <span id="first">{{"Leaves" | translate}}</span>
+                      <span id="second">{{requestsStats.LEAVES}}</span>
+                  </div>
+                  <div class="request-item">
+                      <span id="first">{{"Internship Certifications" | translate}}</span>
+                      <span id="second">{{requestsStats.INTERNSHIP}}</span>
+                  </div>
+                  <div class="request-item">
+                      <span id="first">{{"Work Certifications" | translate}}</span>
+                      <span id="second">{{requestsStats.WORK}}</span>
+                  </div>
+              </div>
+          </div>
+
+          <div class="genders">
+              <ngx-charts-pie-chart [results]="gender" [customColors]="customColors" legendTitle="{{'Gender' | translate}}" [legendPosition]="below" [legend]="true" [view]=[350,300] [scheme]="'natural'"></ngx-charts-pie-chart>
+          </div>
+      </div>
+  </div>

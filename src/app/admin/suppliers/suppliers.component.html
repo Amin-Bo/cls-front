@@ -1,0 +1,90 @@
+<h2> {{ "Suppliers" | translate}} </h2>
+<button mat-raised-button color="primary" class="add-btn" routerLink="archived-suppliers"> {{ "Archive" | translate}}</button>
+<button mat-raised-button color="accent" class="add-btn" style="margin-right: 6%;" (click)="showForm()"> {{ "Add Supplier" | translate}}</button>
+
+<div class="container">
+  <mat-form-field appearance="standard" class="filter">
+    <mat-label>{{'Filter'|translate}}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input>
+  </mat-form-field>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortDisableClear matSortActive="position" matSortDirection="asc">
+
+  <!-- N* -->
+  <ng-container matColumnDef="n">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> N. </th>
+    <td mat-cell *matCellDef="let element "> {{element.n}} </td>
+  </ng-container>
+  <!-- name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Name" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- email Column -->
+  <ng-container matColumnDef="email" >
+    <th mat-header-cell *matHeaderCellDef> {{ "Email" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.email }} </td>
+  </ng-container>
+  <!-- phone Column -->
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Phone" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+  </ng-container>
+
+  <!-- address Column -->
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef> {{ "Address" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+  </ng-container>
+
+  <!-- contract_start_date Column -->
+  <ng-container matColumnDef="contract_start_date" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Contract start date" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.contract_start_date | date: 'mediumDate' }} </td>
+  </ng-container>
+  <!-- contract_end_date Column -->
+  <ng-container matColumnDef="contract_end_date" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Contract end date" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.contract_end_date | date: 'mediumDate' }} </td>
+  </ng-container>
+  <!-- all contracts Column -->
+  <ng-container matColumnDef="all_contracts" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "All Contracts" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> <a routerLink="contracts/{{element._id}}" > <button mat-mini-fab color="primary"><mat-icon>info</mat-icon></button> </a> </td>
+  </ng-container>
+  <!-- all invoices Column -->
+  <ng-container matColumnDef="all_invoices" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "All Invoices" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> <a routerLink="invoices/{{element._id}}" > <button mat-mini-fab color="primary"><mat-icon>info</mat-icon></button> </a> </td>
+  </ng-container>
+  <!-- action Column -->
+  <ng-container matColumnDef="actions" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Action" | translate}} </th>
+    <td mat-cell *matCellDef="let element">  
+      <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <button (click)="onAddInvoice(element._id)" mat-menu-item>
+          <mat-icon>add</mat-icon>
+          <span> {{"Add Invoice" | translate}} </span>
+        </button>
+        <button mat-menu-item (click)="onAddContract(element._id)">
+          <mat-icon>add</mat-icon>
+          <span>{{"Add Contract" | translate}}</span>
+        </button>
+        <button mat-menu-item (click)="onEditSupplier(element._id)">
+          <mat-icon>edit</mat-icon>
+          <span>{{"Edit Supplier" | translate}}</span>
+        </button>
+      </mat-menu> 
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10]"
+               showFirstLastButtons
+               aria-label="Select page of Users">
+</mat-paginator>
+
+</div>

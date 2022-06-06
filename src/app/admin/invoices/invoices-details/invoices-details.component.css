@@ -1,0 +1,41 @@
+.main{
+    display: flex;
+  }
+  form{
+    background-color: rgb(255, 255, 255);
+    padding: 5%;
+    width: 41vw;
+    height: 40vh;
+    border-radius: 21px;
+    margin-top: 30%;
+    margin-left: 4%;
+    position: relative;
+  }
+  
+  .row {
+    width: 100%;
+  }
+  .col{
+    width: 46%;
+    margin-right: 20px;
+  }
+  .tab-element{
+    margin-top: 20px;
+  }
+  h4{
+    margin: 3px;
+  }
+  .submit{
+    position: absolute;
+    width: 22%;
+    bottom: 9%;
+  }
+  mat-tab-group{
+    position: relative;
+  }
+h3{
+  /* margin-top: 20%; */
+  margin-bottom: 5%;
+}
+
+  

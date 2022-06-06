@@ -1,0 +1,58 @@
+<h2> {{ "Requests" | translate}} </h2>
+<button mat-raised-button color="primary" routerLink="requests-archive" class="add-btn" > {{ "Archives" | translate}}</button>
+
+<div class="container">
+  <mat-form-field appearance="standard" class="filter">
+    <mat-label>{{ "Filter" | translate}}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input>
+  </mat-form-field>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortDisableClear matSortActive="position" matSortDirection="asc">
+
+  <!-- N* -->
+  <ng-container matColumnDef="n">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> N. </th>
+    <td mat-cell *matCellDef="let element "> {{element.n}} </td>
+  </ng-container>
+  <!-- first_name Column -->
+  <ng-container matColumnDef="sender">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Sender" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.from}} </td>
+  </ng-container>
+
+  <!-- last_name Column -->
+  <ng-container matColumnDef="sent_date">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Sent Date" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.sent_date | date:'medium'}} </td>
+  </ng-container>
+
+  <!-- job_title Column -->
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Status" | translate}} </th>
+    <td mat-cell *matCellDef="let element">
+      <button *ngIf="element.status == 'in progress'" style="width: 100px; cursor: auto;" mat-raised-button color="accent">{{element.status | translate}}</button>
+      <button *ngIf="element.status == 'done'" style="width: 100px; background-color: green; cursor: auto;" mat-raised-button color="primary">{{element.status | translate}}</button>
+      <button *ngIf="element.status == 'declined'" style="width: 100px; background-color: red; cursor: auto;" mat-raised-button color="primary">{{element.status | translate}}</button>
+    </td>
+  </ng-container>
+
+  <!-- email Column -->
+  <ng-container matColumnDef="type" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Type" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.type | translate}} </td>
+  </ng-container>
+
+  <!-- action Column -->
+  <ng-container matColumnDef="action" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ "Action" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> <button mat-icon-button [disabled]="element.status !== 'in progress'" routerLink="{{element.id}}"><mat-icon>edit</mat-icon></button> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10]"
+               showFirstLastButtons
+               aria-label="Select page of requests">
+</mat-paginator>
+
+</div>

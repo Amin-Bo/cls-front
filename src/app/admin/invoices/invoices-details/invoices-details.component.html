@@ -1,0 +1,48 @@
+<div class="main">
+  <div class="form">
+    <form [formGroup]="form" *ngIf="form">
+      <h3> {{"Invoice N° : " | translate}} {{invoice_id}} </h3>
+      <div class="row">
+        <mat-form-field appearance="outline" class="col">
+          <mat-label>{{ "Date" | translate}}</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="col">
+          <mat-label>{{ "Payment Status" | translate}}</mat-label>
+          <mat-select formControlName="payment_status">
+            <mat-option value="paid">{{ "Paid" | translate}}</mat-option>
+            <mat-option value="not_paid">{{ "Not Paid" | translate}}</mat-option>
+            <mat-option value="paid_by_split">{{ "Paid By Split" | translate}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+
+        <mat-form-field appearance="outline" class="col">
+          <mat-label>{{ "Payment Methode" | translate}}</mat-label>
+          <mat-select formControlName="payment_method">
+            <mat-option value="cash">{{ "Cash" | translate}}</mat-option>
+            <mat-option value="cheque">{{ "Cheque" | translate}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col">
+          <mat-label>{{ "Payment Amount" | translate}}</mat-label>
+          <input matInput formControlName="amount">
+        </mat-form-field>
+      </div>
+      <mat-form-field appearance="outline" class="col">
+        <mat-label>{{ "Amount Excluding Taxes" | translate}}</mat-label>
+        <input matInput formControlName="Amount_excluding_taxes">
+      </mat-form-field>
+    <button mat-raised-button [color]="'primary'" type="button"  [disabled]="!form.valid">{{ "Update" | translate}}</button>
+
+    </form>
+  </div>
+  <pdf-viewer [src]="pdf" [show-all]="true" [render-text]="false" [original-size]="false" [show-borders]="true" [zoom]="0.9"
+    style="width: 40vw; height: 930px"></pdf-viewer>
+</div>
