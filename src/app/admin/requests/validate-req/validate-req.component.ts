@@ -26,7 +26,7 @@ export class ValidateReqComponent implements OnInit {
   reqSub : Subscription;
   form : FormGroup;
   pdf : string = null;
-  path : string = "http://proud-teal-viper.cyclic.app/assets/certifications/";
+  path : string = "http://cls-rest.herokuapp.com/assets/certifications/";
   file : string = null;
   sender : string = null;
   type : string;
@@ -62,7 +62,7 @@ export class ValidateReqComponent implements OnInit {
 
   getPDF(){
     this.isLoading = true;
-    this.http.post('http://proud-teal-viper.cyclic.app/api/request/preview',{
+    this.http.post('http://cls-rest.herokuapp.com/api/request/preview',{
       id : this.id,
       firstName : this.form.get('firstName')?.value,
       lastName : this.form.get('lastName')?.value,
@@ -81,7 +81,7 @@ export class ValidateReqComponent implements OnInit {
   }
 
   validate(){
-    this.http.post('http://proud-teal-viper.cyclic.app/api/request/updateStatus/'+this.sender,{
+    this.http.post('http://cls-rest.herokuapp.com/api/request/updateStatus/'+this.sender,{
       status : "done",
       id : this.id,
       firstName : this.form.get('firstName')?.value,
@@ -106,7 +106,7 @@ export class ValidateReqComponent implements OnInit {
   }
 
   decline(){
-    this.http.put('http://proud-teal-viper.cyclic.app/api/request/declineRequest/'+this.sender,{
+    this.http.put('http://cls-rest.herokuapp.com/api/request/declineRequest/'+this.sender,{
       id : this.id,
     },{headers:{Authorization: `jwt ${this.token}`}}).subscribe(res =>{
       this.snackbar.open("Request declined", "Close", {

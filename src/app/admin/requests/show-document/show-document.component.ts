@@ -7,7 +7,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./show-document.component.css']
 })
 export class ShowDocumentComponent implements OnInit {
-  path : string = "http://proud-teal-viper.cyclic.app/assets/certifications/" + this.data.file;
+  path : string = "http://cls-rest.herokuapp.com/assets/certifications/" + this.data.file;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data :any,

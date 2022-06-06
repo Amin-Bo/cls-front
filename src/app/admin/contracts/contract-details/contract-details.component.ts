@@ -13,7 +13,7 @@ import { ContractsService } from 'src/app/services/contracts.service';
 export class ContractDetailsComponent implements OnInit {
   isLoading : boolean = true;
   contract_id : string;
-  path : string = "http://proud-teal-viper.cyclic.app/assets/contracts/";
+  path : string = "http://cls-rest.herokuapp.com/assets/contracts/";
   pdf : string = null;
   form :FormGroup;
   indexTab :number;

@@ -13,7 +13,7 @@ import { ActionLeaveDialogComponent } from '../action-leave-dialog/action-leave-
 export class ActionLeaveComponent implements OnInit {
   zoom : number = 1;
   zoomed : boolean = false;
-  path : string ="http://proud-teal-viper.cyclic.app/assets/leaves/";
+  path : string ="http://cls-rest.herokuapp.com/assets/leaves/";
   file_type : string;
   leaves_left : number;
   user_id : string;

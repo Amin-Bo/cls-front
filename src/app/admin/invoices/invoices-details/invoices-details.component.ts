@@ -13,7 +13,7 @@ export class InvoicesDetailsComponent implements OnInit {
 
   constructor(private invoiceService : InvoicesService , private route : ActivatedRoute) { }
   invoice_id : string;
-  path : string = "http://proud-teal-viper.cyclic.app/assets/invoices/";
+  path : string = "http://cls-rest.herokuapp.com/assets/invoices/";
   pdf : string;
   form : FormGroup;
   ngOnInit(): void {

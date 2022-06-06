@@ -12,7 +12,7 @@ export class ShowFileComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data :any,
   ) { }
 
-  path : string = "http://proud-teal-viper.cyclic.app/assets/leaves/" + this.data.file;
+  path : string = "http://cls-rest.herokuapp.com/assets/leaves/" + this.data.file;
 
   ngOnInit(): void {
 

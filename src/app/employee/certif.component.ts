@@ -96,6 +96,6 @@ export class CertifComponent implements OnInit , AfterViewInit {
   }
 
   download(path: string){
-    file.saveAs('http://proud-teal-viper.cyclic.app/assets/certifications/'+path, `${this.certifType} certification.pdf`);
+    file.saveAs('http://cls-rest.herokuapp.com/assets/certifications/'+path, `${this.certifType} certification.pdf`);
   }
 }

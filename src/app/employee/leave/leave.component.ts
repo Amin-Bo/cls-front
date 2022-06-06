@@ -98,6 +98,6 @@ export class LeaveComponent implements OnInit ,AfterViewInit{
   }
 
   download(path: string){
-    file.saveAs('http://proud-teal-viper.cyclic.app/assets/leaves/accepted/'+path, `attestation_de_congé.pdf`);
+    file.saveAs('http://cls-rest.herokuapp.com/assets/leaves/accepted/'+path, `attestation_de_congé.pdf`);
   }
 }
